@@ -3,8 +3,8 @@
 A cozy, mobile-first web re-imagining of the Palm OS classic *Rally 1000* — a
 Mille Bornes card game. You race a computer opponent to exactly 1000 km.
 
-- Plan: [PLAN.md](PLAN.md)
-- Status: [TODO.md](TODO.md)
+- Plan: [PLAN.md](doc/PLAN.md)
+- Status: [TODO.md](doc/TODO.md)
 
 ## Develop
 
@@ -15,5 +15,5 @@ pnpm test       # vitest
 pnpm typecheck  # tsc
 pnpm lint       # eslint
 pnpm format     # prettier
-pnpm build      # production build → dist/
+pnpm build      # production build → app/
 ```

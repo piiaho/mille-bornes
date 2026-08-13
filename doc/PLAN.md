@@ -104,7 +104,7 @@ src/
     input.ts     touch/click -> intents (actions)
   audio/         AudioManager + SFX
   i18n/          en.ts, zh.ts dictionaries
-  app/           engine↔ui wiring, localStorage persistence, PWA registration
+  boot/          engine↔ui wiring, localStorage persistence, PWA registration
 ```
 
 **Principle:** the engine is the asset; the UI is disposable. Engine code must
@@ -115,7 +115,7 @@ stay importable in Node (for tests) with no build step beyond `tsc`.
 - **pnpm**, **TypeScript** (strict), **Vite**, **Vitest**
 - **ESLint** (typescript-eslint), **Prettier**, **husky** + **lint-staged**
 - **PWA**: manifest + service worker + icons (installable, offline)
-- **Deploy**: GitHub Actions builds `dist/` and publishes to GitHub Pages
+- **Deploy**: GitHub Actions builds `app/` and publishes to GitHub Pages
   (static output stays portable for Cloudflare later)
 
 Feedback loops (per aihero.dev): `tsc` typecheck, Vitest, and pre-commit hooks

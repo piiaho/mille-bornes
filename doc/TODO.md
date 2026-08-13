@@ -11,7 +11,7 @@ before moving on. `[x]` = done, `[ ]` = not done.
 - [ ] husky + lint-staged pre-commit hook running typecheck/test/lint/format
 - [ ] ESLint + Prettier config
 - [ ] PWA skeleton (manifest + service worker + icon)
-- [ ] GitHub Actions: build `dist/` → deploy to GitHub Pages
+- [ ] GitHub Actions: build `app/` → deploy to GitHub Pages
 - [ ] verify: clean build, all checks green, placeholder page live
 
 ## M1 — Rules engine (pure, tested)

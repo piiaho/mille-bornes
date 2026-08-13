@@ -14,7 +14,7 @@ This file is authoritative for this repo and supersedes the parent repo's
   "Extension" rule.
 - **Rules = full Mille Bornes core:** all four card families, hazard/remedy/
   safety triads, coup-fourré, speed limit, max two 200-km cards per player,
-  never overshoot 1000. Full spec in `PLAN.md` § Game rules.
+  never overshoot 1000. Full spec in `doc/PLAN.md` § Game rules.
 - **AI = one rule-based heuristic difficulty.**
 - **Stack = TypeScript + Vite. No UI framework.** A pure game engine plus a thin
   DOM/SVG renderer.
@@ -53,6 +53,14 @@ code — do **not** bypass with `--no-verify`.
 - Shape the core as `applyAction(state, action) -> state`. Keep it pure,
   deterministic, and unit-testable.
 
+## Workspace layout (3-letter folders)
+
+- `app/` — production build output (Vite `build.outDir`), never committed
+- `doc/` — documents: `PLAN.md`, `TODO.md`, specs, notes
+- `src/` — source code (`engine/`, `ui/`, `audio/`, `i18n/`, `boot/`)
+- `log/` — logs, never committed
+- `run/` — test runs, coverage, scratch output, never committed
+
 ## Conventions
 
 - Commit messages: short imperative summary, one logical change per commit
@@ -61,10 +69,10 @@ code — do **not** bypass with `--no-verify`.
   edge cases (overshoot prevention, two-200 limit, coup-fourré timing).
 - Before any `gh` command: `gh auth switch --user piiaho`; switch back to
   `horaceho` when finished.
-- When a rule is ambiguous, check `PLAN.md` first; if still ambiguous, ask
+- When a rule is ambiguous, check `doc/PLAN.md` first; if still ambiguous, ask
   before coding.
 
 ## Rules source of truth
 
 Mille Bornes (1954, Edmond Dujardin). Deck = 106 cards: 46 distance, 18 hazard,
-38 remedy, 4 safety. Full breakdown in `PLAN.md`.
+38 remedy, 4 safety. Full breakdown in `doc/PLAN.md`.
