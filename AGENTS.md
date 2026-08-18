@@ -6,6 +6,15 @@ A cozy, mobile-first web re-imagining of the Palm OS classic **Rally 1000**
 This file is authoritative for this repo and supersedes the parent repo's
 `AGENTS.md` where they conflict.
 
+## Document map (separation of concerns)
+
+- `doc/PLAN.md` — *why & how*: vision, non-goals, locked decisions,
+  architecture, tech stack, milestones, risks. No rules detail.
+- `doc/SPEC.md` — *exactly what*: the authoritative behavior spec — deck, turn
+  structure, state machine, every rule, edge cases, testing seams. When a rule
+  is ambiguous, look here first.
+- `doc/TODO.md` — *progress*: the checklist of work, milestone by milestone.
+
 ## Locked decisions (do not relitigate without asking)
 
 - **v1 = 1v1 vs. a rule-based AI.** No online multiplayer yet — but keep the
@@ -14,7 +23,7 @@ This file is authoritative for this repo and supersedes the parent repo's
   "Extension" rule.
 - **Rules = full Mille Bornes core:** all four card families, hazard/remedy/
   safety triads, coup-fourré, speed limit, max two 200-km cards per player,
-  never overshoot 1000. Full spec in `doc/PLAN.md` § Game rules.
+  never overshoot 1000. Full spec in `doc/SPEC.md`.
 - **AI = one rule-based heuristic difficulty.**
 - **Stack = TypeScript + Vite. No UI framework.** A pure game engine plus a thin
   DOM/SVG renderer.
@@ -56,7 +65,7 @@ code — do **not** bypass with `--no-verify`.
 ## Workspace layout (3-letter folders)
 
 - `app/` — production build output (Vite `build.outDir`), never committed
-- `doc/` — documents: `PLAN.md`, `TODO.md`, specs, notes
+- `doc/` — documents: `PLAN.md`, `SPEC.md`, `TODO.md`
 - `src/` — source code (`engine/`, `ui/`, `audio/`, `i18n/`, `boot/`)
 - `log/` — logs, never committed
 - `run/` — test runs, coverage, scratch output, never committed
@@ -69,10 +78,11 @@ code — do **not** bypass with `--no-verify`.
   edge cases (overshoot prevention, two-200 limit, coup-fourré timing).
 - Before any `gh` command: `gh auth switch --user piiaho`; switch back to
   `horaceho` when finished.
-- When a rule is ambiguous, check `doc/PLAN.md` first; if still ambiguous, ask
-  before coding.
+- When a rule is ambiguous, check `doc/SPEC.md` first; for scope/process
+  questions check `doc/PLAN.md`; if still ambiguous, ask before coding.
 
 ## Rules source of truth
 
-Mille Bornes (1954, Edmond Dujardin). Deck = 106 cards: 46 distance, 18 hazard,
-38 remedy, 4 safety. Full breakdown in `doc/PLAN.md`.
+Mille Bornes (1954, Edmond Dujardin). The authoritative behavioral spec is
+`doc/SPEC.md` (106 playable cards: 46 distance, 18 hazard, 38 remedy, 4 safety,
+plus the deliberate deviations from the official 2-player variant).

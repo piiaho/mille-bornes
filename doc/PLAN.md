@@ -30,61 +30,11 @@ original mechanics, designed to feel great on a phone held in one hand.
 | Persistence | localStorage |
 | Audio | CC0/self-composed music; Web Audio SFX |
 
-## Game rules (spec)
+## Game rules
 
-**Goal.** Be first to reach **exactly 1000 km** (never overshoot).
-
-**Deck (106 cards).**
-
-- Distance (46): 25×10, 50×10, 75×10, 100×12, 200×4
-- Hazards (18): Stop×5, Speed Limit×4, Out of Gas×3, Flat Tire×3, Accident×3
-- Remedies (38): Roll×14, End of Limit×6, Gasoline×6, Spare Tire×6, Repairs×6
-- Safeties (4): Right of Way, Extra Tank, Puncture-Proof, Driving Ace (×1 each)
-
-**Setup.** Shuffle, deal 6 cards each, form draw + discard piles.
-
-**Turn.** Draw 1 (while the pile lasts) → then **play 1 or discard 1** (hand
-returns to 6). If no legal play, you must discard. After the deck empties, skip
-the draw and keep playing/discarding one card per turn.
-
-**Tableau.** Four areas per player:
-
-- **Battle** (stacked): Stop/Roll, Out of Gas/Gasoline, Flat Tire/Spare Tire,
-  Accident/Repairs — only the top card matters.
-- **Speed**: Speed Limit / End of Limit.
-- **Distance**: km cards, summed.
-- **Safety**: the four safeties along the top.
-
-**Legal plays.**
-
-- *Distance* — only if "moving" (a Roll is showing in Battle, or Right of Way is
-  active). May not exceed 1000 km total. While speed-limited, only 25/50 km.
-  Max two 200-km cards per player.
-- *Remedy* — on its matching hazard.
-- *End of Limit* — on a Speed Limit.
-- *Hazard* — on the opponent only if the opponent is "moving" and hasn't played
-  the matching safety. Exception: Speed Limit may be played even if the
-  opponent isn't moving.
-- *Roll* — if a Stop or a remedy is showing, or Battle is empty.
-- *Safety* — anytime. Then **draw immediately and play again**. A safety both
-  corrects the matching hazard and prevents future ones of that type.
-- *Discard* — always allowed (even with a legal play available).
-
-**Right of Way.** Prevents and clears both Stop and Speed Limit; makes you
-"moving" without needing a Roll. Still vulnerable to the other hazards.
-
-**Coup Fourré.** When the opponent plays a hazard and you hold the matching
-safety, you may immediately play it (sideways in the Safety area), the hazard is
-discarded (revealing the Roll beneath), and you draw + play again. Must be
-declared before the next play. In 1v1, this effectively means you steal the turn.
-
-**Winning.** First to exactly 1000 km wins. If the deck exhausts and no one
-reaches 1000, play out the hands; the higher distance wins (tie = draw).
-*(Edge case — confirm against original Rally 1000 behavior if strict fidelity is
-required; the standard-rule default above is acceptable for v1.)*
-
-**Deferred (future).** Scoring (safety 100, all-four 300, coup-fourré 300,
-trip 400, shutout 500, etc.) is a later milestone; v1 is a pure race.
+The complete, authoritative behavior spec lives in **`SPEC.md`** — deck, turn
+structure, state machine, every rule, edge cases, and testing seams. This plan
+records only *decisions*; for *behavior*, read `SPEC.md`.
 
 ## Architecture
 
@@ -108,7 +58,9 @@ src/
 ```
 
 **Principle:** the engine is the asset; the UI is disposable. Engine code must
-stay importable in Node (for tests) with no build step beyond `tsc`.
+stay importable in Node (for tests) with no build step beyond `tsc`. The state
+machine and the engine's public API (`legalMoves`, `applyAction`) are specified
+in `SPEC.md` § State machine.
 
 ## Tech stack & tooling
 
@@ -125,7 +77,7 @@ are the guardrails for AI-written code.
 
 - **M0 — Scaffold & feedback loops.** Walking skeleton: Vite+TS, all checks
   wired, husky, PWA stub, CI deploy of a placeholder page.
-- **M1 — Rules engine.** Full spec above as pure, unit-tested logic.
+- **M1 — Rules engine.** SPEC.md as pure, unit-tested logic.
 - **M2 — UI & board.** SVG cards, tableaus, turn flow, one-thumb layout, EN/ZH.
 - **M3 — AI opponent.** Heuristic play: distance gain, blocking, remedy/safety
   judgment, card counting.
@@ -134,9 +86,9 @@ are the guardrails for AI-written code.
 
 ## Risks & open questions
 
-- **Fidelity details.** Hand size (6), 1000-km goal, and deck composition above
-  are standard Mille Bornes. The original Palm build may vary slightly — verify
-  if strict fidelity matters before M1.
+- **Fidelity details.** Hand size (6), 1000-km goal, and deck composition (see
+  SPEC.md) are standard Mille Bornes. The original Palm build may vary slightly
+  — verify if strict fidelity matters before M1.
 - **Copyright.** Game mechanics aren't copyrightable, but all art, audio, and
   names must be original or CC0. No Mille Bornes trademark or card art.
 - **Music.** Must source a CC0/licensed cozy loop or compose one in M4.
