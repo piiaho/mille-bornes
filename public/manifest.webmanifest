@@ -1,0 +1,18 @@
+{
+  "name": "Mille Bornes (Rally 1000)",
+  "short_name": "Rally 1000",
+  "description": "A cozy Mille Bornes card game — race to 1000 km.",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f5efe0",
+  "theme_color": "#f5efe0",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

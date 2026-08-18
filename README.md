@@ -1,6 +1,6 @@
 # Mille Bornes (Rally 1000)
 
-A cozy, mobile-first web re-imagining of the Palm OS classic *Rally 1000* — a
+A cozy, mobile-first web re-imagining of the Palm OS classic _Rally 1000_ — a
 Mille Bornes card game. You race a computer opponent to exactly 1000 km.
 
 - Plan: [PLAN.md](doc/PLAN.md)

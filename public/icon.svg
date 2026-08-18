@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="96" fill="#e4572e" />
+  <rect x="96" y="96" width="320" height="320" rx="48" fill="#f5efe0" />
+  <text
+    x="256"
+    y="292"
+    font-family="system-ui, sans-serif"
+    font-size="120"
+    font-weight="700"
+    text-anchor="middle"
+    fill="#e4572e"
+  >1000</text>
+  <text
+    x="256"
+    y="372"
+    font-family="system-ui, sans-serif"
+    font-size="40"
+    text-anchor="middle"
+    fill="#3a3226"
+  >km</text>
+</svg>

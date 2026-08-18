@@ -1,0 +1,7 @@
+app
+run
+log
+node_modules
+pnpm-lock.yaml
+doc
+AGENTS.md
