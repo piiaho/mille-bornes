@@ -3,18 +3,18 @@
 Scope & progress tracker. Work top-down; keep the current milestone checked off
 before moving on. `[x]` = done, `[ ]` = not done.
 
-## M0 — Scaffold & feedback loops ⬅️ NEXT
+## M0 — Scaffold & feedback loops ✅
 
-- [ ] `git init` repo, `.gitignore`, README
-- [ ] pnpm + Vite + TypeScript (strict) scaffold
-- [ ] scripts: `dev`, `build`, `typecheck` (tsc), `test` (vitest), `lint`, `format`
-- [ ] husky + lint-staged pre-commit hook running typecheck/test/lint/format
-- [ ] ESLint + Prettier config
-- [ ] PWA skeleton (manifest + service worker + icon)
-- [ ] GitHub Actions: build `app/` → deploy to GitHub Pages
-- [ ] verify: clean build, all checks green, placeholder page live
+- [x] `git init` repo, `.gitignore`, README
+- [x] pnpm + Vite + TypeScript (strict) scaffold
+- [x] scripts: `dev`, `build`, `typecheck` (tsc), `test` (vitest), `lint`, `format`
+- [x] husky + lint-staged pre-commit hook running typecheck/test/lint/format
+- [x] ESLint + Prettier config
+- [x] PWA skeleton (manifest + service worker + icon)
+- [x] GitHub Actions: build `app/` → deploy to GitHub Pages
+- [x] verify: clean build, all checks green, placeholder page live
 
-## M1 — Rules engine (pure, tested)
+## M1 — Rules engine (pure, tested) ⬅️ NEXT
 
 - [ ] card & state types (`engine/types.ts`)
 - [ ] 106-card deck factory + shuffle (`engine/deck.ts`)
